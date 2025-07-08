@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>TRHEXS Welcome</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #0a0014;
+      color: white;
+      text-align: center;
+    }
+    .page { display: none; height: 100vh; padding-top: 100px; }
+    .active { display: block; }
+    .logo { width: 150px; border-radius: 20px; margin-bottom: 20px; }
+    h1 { font-size: 26px; color: #00ffff; text-shadow: 0 0 10px #00ffff; }
+    input, button {
+      font-size: 16px; padding: 10px; border-radius: 6px; border: none; margin-top: 15px;
+    }
+    .btn-purple {
+      background-color: #2e003e; color: white; width: 220px; margin: 10px auto;
+      display: block; border-radius: 8px; font-weight: bold; box-shadow: 0 0 10px #a200ff;
+    }
+    .btn-purple:hover { background-color: #4e0070; }
+    .footer { position: absolute; bottom: 10px; width: 100%; font-size: 12px; color: #ccc; }
+  </style>
+</head>
+<body>
+
+<!-- Welcome Page -->
+<div id="welcomePage" class="page active">
+  <img class="logo" src="https://files.catbox.moe/ehaq8h.jpg" alt="Logo TRHEXS" />
+  <h1>SELAMAT DATANG</h1>
+  <p>DI WEB BUG TRHEXS</p>
+  <input type="password" id="passInput" placeholder="Masukkan Password" />
+  <br />
+  <button onclick="checkPassword()">MASUK</button>
+  <div class="footer">©Trhexs | Powered by Trhexs.</div>
+</div>
+
+<!-- Loading Page -->
+<div id="loadingPage" class="page">
+  <div class="loader"></div>
+  <p>Loading...</p>
+  <div class="footer">©Trhexs | Powered by Trhexs.</div>
+</div>
+
+<!-- Main Page -->
+<div id="mainPage" class="page">
+  <h1 class="neon-text">👾 BUG FORCE ATTACKER</h1>
+  <input type="text" id="targetNumber" placeholder="Masukkan Nomor Target" />
+  <button class="btn-purple" onclick="runFreeze()">🔮 BUG FREEZE</button>
+  <button class="btn-purple" onclick="runProtocol()">🐉 BUG PROTOCOL</button>
+  <div class="footer">©Trhexs | Powered by Trhexs.</div>
+</div>
+
+<audio autoplay loop muted id="bgmusic">
+  <source src="https://files.catbox.moe/chyczo.mp3" type="audio/mpeg" />
+</audio>
+
+<script>
+  function checkPassword() {
+    const pass = document.getElementById("passInput").value;
+    if (pass === "TRHEXSV1") {
+      document.getElementById("welcomePage").classList.remove("active");
+      document.getElementById("loadingPage").classList.add("active");
+      setTimeout(() => {
+        document.getElementById("loadingPage").classList.remove("active");
+        document.getElementById("mainPage").classList.add("active");
+      }, 2000);
+    } else {
+      alert("Password salah!");
+    }
+  }
+
+  function runFreeze() {
+    const target = document.getElementById("targetNumber").value;
+    if (!target) return alert("Masukkan nomor target dulu!");
+    FreezeClick({}, target);
+  }
+
+  function runProtocol() {
+    const target = document.getElementById("targetNumber").value;
+    if (!target) return alert("Masukkan nomor target dulu!");
+    protocolbug7(target);
+  }
+</script>
+
+<script src="func.js"></script>
+<script src="func2.js"></script>
+</body>
+</html>
